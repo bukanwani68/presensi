@@ -17,7 +17,7 @@
               ABSEN SISWA
             </div>
             <div class="card-body">
-              <form action="cek-absen.php" method="POST">
+              <form action="konfirmasi-kehadiran.php" method="POST">
                 
                 <div class="form-group">
                   <label>NISN</label>

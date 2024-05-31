@@ -1,21 +1,30 @@
+
 <?php
 
-//include koneksi database
-include('koneksi.php');
+date_default_timezone_set('Asia/Jakarta');
+echo date('Y-m-d H:i:s');
 
-//get data dari form
-$nisn           = $_POST['nisn'];
+//include koneksi database
+include('../../koneksi.php');
+
+$nisn = $_POST['nama_lengkap'];
 $nama_lengkap = $_POST['nama_lengkap'];
-$alamat       = $_POST['alamat'];
+$kelas = $_POST['kelas'];
+$jurusan = $_POST['jurusan'];
+
+$masuk = date("H:i:s");
+
+
+
 
 //query insert data ke dalam database
-$query = "INSERT INTO tbl_siswa (nisn, nama_lengkap, alamat) VALUES ('$nisn', '$nama_lengkap', '$alamat')";
+$query = "INSERT INTO tbl_rekap (nisn, nama_lengkap, kelas, jurusan, keterangan, masuk) VALUES ('$nisn', '$nama_lengkap', '$kelas', '$jurusan', 'hadir', '$masuk')";
 
 //kondisi pengecekan apakah data berhasil dimasukkan atau tidak
 if($connection->query($query)) {
 
     //redirect ke halaman index.php 
-    header("location: siswa.php");
+    header("location: hadir.php");
 
 } else {
 

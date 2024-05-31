@@ -51,9 +51,9 @@
 
 <div class="login-container">
     <h1>Halaman Login</h1>
-    <button class="absen">Absen</button>
-    <button class="pengajuan">Pengajuan</button>
-    <button class="admin">Masuk sebagai Admin</button>
+    <button class="absen" onclick="window.location.href='kehadiran.php'">HADIR</button>
+    <button class="pengajuan" onclick="window.location.href='pengajuan/.php'">PENGAJUAN IZIN/SAKIT</button>
+    <button class="admin" onclick="window.location.href='login.php'">MASUK SEBAGAI ADMIN</button>
 </div>
 
 </body>

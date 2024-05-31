@@ -10,10 +10,18 @@
   <body>
 
   <?php 
-        include('koneksi.php');
-        $no = 1;
-        $query = mysqli_query($connection,"SELECT * FROM tbl_siswa");
-        while($row = mysqli_fetch_array($query)){
+
+include('koneksi.php');
+
+$nisn = $_POST['nisn'];
+
+$query = "SELECT * FROM tbl_siswa WHERE nisn = $nisn ";
+
+$result = mysqli_query($connection, $query);
+
+$row = mysqli_fetch_array($result);
+
+{
     ?>
 
 <div class="container" style="margin-top: 80px">
@@ -24,38 +32,30 @@
               Konfirmasi Pengajuan
             </div>
             <div class="card-body">
-              <form action="simpan-siswa.php" method="POST">
+              <form action="admin/hadir/simpan-hadir.php" method="POST">
                 
                 <div class="form-group">
                     <label>NISN</label> 
                     <br>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['nisn'] ?></textarea>
+                    <textarea class="form-control" name="nisn" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['nisn'] ?></textarea>
                 </div>
 
                 <div class="form-group">
                   <label>Nama Lengkap</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['nama_lengkap'] ?></textarea>
+                  <textarea class="form-control" name="nama_lengkap" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['nama_lengkap'] ?></textarea>
                 </div>
 
                 <div class="form-group">
                   <label>Kelas</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['kelas'] ?></textarea>
+                  <textarea class="form-control" name="kelas" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['kelas'] ?></textarea>
                 </div>
 
                 <div class="form-group">
                   <label>Jurusan</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['jurusan'] ?></textarea>
+                  <textarea class="form-control" name="jurusan" id="exampleFormControlTextarea1" rows="1" readonly><?php echo $row['jurusan'] ?></textarea>
                 </div>
 
-                <div class="form-group">
-                  <label>Jam Masuk</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"><?php echo $row['masuk'] ?></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label>Jam Keluar</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"><?php echo $row['keluar'] ?></textarea>
-                </div>
+            
                 
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>

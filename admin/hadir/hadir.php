@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>ini dashboard</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -111,22 +111,25 @@
               DATA SELURUH SISWA
             </div>
             <div class="card-body">
-              <a href="tambah-siswa.php" class="btn btn-md btn-success" style="margin-bottom: 15px"><i class="fa-solid fa-user-plus mr-4"></i>  TAMBAH DATA </a>
+              <a href="tambah-hadir.php" class="btn btn-md btn-success" style="margin-bottom: 15px"><i class="fa-solid fa-user-plus mr-4"></i>  TAMBAH DATA </a>
               <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>
                     <th scope="col">NO.</th>
                     <th scope="col">NISN</th>
                     <th scope="col">NAMA LENGKAP</th>
-                    <th scope="col">ALAMAT</th>
-                    <th scope="col">AKSI</th>
+                    <th scope="col">KELAS</th>
+                    <th scope="col">JURUSAN</th>
+                    <th scope="col">KETERANGAN</th>
+                    <th scope="col">MASUK</th>
+                    <th scope="col">KELUAR</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
-                      include('koneksi.php');
+                      include('../../koneksi.php');
                       $no = 1;
-                      $query = mysqli_query($connection,"SELECT * FROM tbl_siswa");
+                      $query = mysqli_query($connection,"SELECT * FROM tbl_rekap'");
                       while($row = mysqli_fetch_array($query)){
                   ?>
 
@@ -134,10 +137,14 @@
                       <td><?php echo $no++ ?></td>
                       <td><?php echo $row['nisn'] ?></td>
                       <td><?php echo $row['nama_lengkap'] ?></td>
-                      <td><?php echo $row['alamat'] ?></td>
+                      <td><?php echo $row['kelas'] ?></td>
+                      <td><?php echo $row['jurusan'] ?></td>
+                      <td><?php echo $row['keterangan'] ?></td>
+                      <td><?php echo $row['masuk'] ?></td>
+                      <td><?php echo $row['keluar'] ?></td>
                       <td class="text-center">
-                        <a href="edit-siswa.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-primary">EDIT <i class="fa-solid fa-pen-to-square"></i></i></a>
-                        <a href="hapus-siswa.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-danger">HAPUS <i class="fa-solid fa-circle-xmark"></i></a>
+                        <a href="edit-hadir.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-primary">EDIT <i class="fa-solid fa-pen-to-square"></i></i></a>
+                        <a href="hapus-hadir.php?id=<?php echo $row['id_siswa'] ?>" class="btn btn-sm btn-danger">HAPUS <i class="fa-solid fa-circle-xmark"></i></a>
                       </td>
                   </tr>
 
@@ -163,7 +170,7 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="../../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src="../../js/datatables-simple-demo.js"></script>
     </body>
